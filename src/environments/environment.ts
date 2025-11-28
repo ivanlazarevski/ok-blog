@@ -1,3 +1,3 @@
 export const environment = {
-  siteKey: ''
+  siteKey: import.meta.env.siteKey,
 };

@@ -45,7 +45,7 @@
               ],
               "outputHashing": "all",
               "define": {
-                "import.meta.env.NG_RECAPTCHA_SITEKEY": "\"${NG_RECAPTCHA_SITEKEY}\""
+                "import.meta.env.siteKey": "\"${siteKey}\""
               }
             },
             "development": {
