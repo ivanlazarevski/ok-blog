@@ -1,23 +1,19 @@
 const fs = require('fs');
-const path = require('path');
-const successColor = '\x1b[32m%s\x1b[0m';
-const checkSign = '\u{2705}';
-const dotenv = require('dotenv').config({ path: 'src/.env' });
+const targetPath = './src/environments/environment.prod.ts';
 
-// Instead of using process.env directly in the Angular file, use import.meta.env
-const envFile = `export const environment = {
-    siteKey: import.meta.env.siteKey,
-    production: false
-};
-`;
+// This variable is read from process.env, which is set by Vercel
+const siteKey = process.env.siteKey || 'default-key-for-local-dev';
 
-const targetPath = path.join(__dirname, './src/environments/environment.development.ts');
+const envConfigFile = `export const environment = {
+  production: true,
+  siteKey: '${siteKey}',
+};`;
 
-fs.writeFileSync(targetPath, envFile, (err) => {
+fs.writeFile(targetPath, envConfigFile, function (err) {
   if (err) {
     console.error(err);
     throw err;
   } else {
-    console.log(successColor, `${checkSign} Successfully generated environment.development.ts`);
+    console.log(`Successfully generated ${targetPath}`);
   }
 });
