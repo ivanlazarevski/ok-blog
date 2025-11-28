@@ -23,7 +23,8 @@ export class ContactPageComponent {
   public readonly destroyRef = inject(DestroyRef);
   private readonly snackBar = inject(MatSnackBar);
   public readonly router = inject(Router);
-  protected siteKey = '<KEY>';
+  // @ts-ignore
+  protected siteKey = import.meta.env.NG_RECAPTCHA_SITEKEY;
 
   public commentForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
