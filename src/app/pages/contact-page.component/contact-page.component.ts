@@ -24,7 +24,7 @@ export class ContactPageComponent implements OnInit {
     setInterval(() => {
       //@ts-ignore
       console.log(process.env);
-    }, 1000)
+    }, 1500)
   }
 
   public readonly blogService = inject(BlogService);
