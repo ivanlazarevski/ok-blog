@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config({ path: 'src/.env' });
 
 // Instead of using process.env directly in the Angular file, use import.meta.env
 const envFile = `export const environment = {
-    siteKey: import.meta.env.siteKey,
+    siteKey: import.meta.siteKey,
     production: false
 };
 `;
