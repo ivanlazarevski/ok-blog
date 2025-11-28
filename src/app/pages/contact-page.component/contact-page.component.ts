@@ -1,11 +1,12 @@
-import {Component, DestroyRef, inject, OnInit} from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { BlogService } from '../../util/blog.service';
 import { ButtonComponent } from '../../components/button.component/button.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxCaptchaModule } from 'ngx-captcha';
-import {environment} from "../../../environments/environment";
+import { environment } from '../../../environments/environment';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 export type CommentData = {
   email: string;
@@ -18,14 +19,7 @@ export type CommentData = {
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.css',
 })
-export class ContactPageComponent implements OnInit {
-  ngOnInit(): void {
-    setInterval(() => {
-      //@ts-ignore
-      console.log(this.siteKey);
-    }, 1500)
-  }
-
+export class ContactPageComponent {
   public readonly blogService = inject(BlogService);
   public readonly destroyRef = inject(DestroyRef);
   private readonly snackBar = inject(MatSnackBar);
@@ -40,7 +34,19 @@ export class ContactPageComponent implements OnInit {
   });
 
   postComment(): void {
-    console.log('your mather', this.commentForm.valid);
+    const email = this.commentForm.value.email;
+    const message = this.commentForm.value.message;
+    this.blogService
+      .postComment(email, message)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        this.snackBar
+          .open('❤️ Your message has been sent!', 'OK', { duration: 2000 })
+          .afterOpened()
+          .subscribe(() => {
+            this.router.navigate(['/']);
+          });
+      });
   }
 
   handleReset(): void {}

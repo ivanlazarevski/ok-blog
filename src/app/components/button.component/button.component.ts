@@ -8,4 +8,5 @@ import { Component, input } from '@angular/core';
 })
 export class ButtonComponent {
   public btnText = input('');
+  public btnValid = input(true);
 }

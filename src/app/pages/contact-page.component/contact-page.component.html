@@ -28,5 +28,5 @@
     formControlName="captcha"
   >
   </ngx-recaptcha2>
-  <app-button [btnText]="'Send'" (click)="postComment()" />
+  <app-button [btnValid]="commentForm.valid" [btnText]="'Send'" (click)="postComment()" />
 </form>

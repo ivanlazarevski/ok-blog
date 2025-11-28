@@ -8,7 +8,10 @@ import { Observable } from 'rxjs';
 export class BlogService {
   private readonly http = inject(HttpClient);
 
-  public postComment(email: string, message: string): Observable<Object> {
+  public postComment(
+    email: string | null | undefined,
+    message: string | null | undefined,
+  ): Observable<Object> {
     return this.http.post('https://formspree.io/f/xwpwvvov', {
       email,
       message,
