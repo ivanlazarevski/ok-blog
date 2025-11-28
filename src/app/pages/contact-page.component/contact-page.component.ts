@@ -5,6 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import {environment} from "../../../environments/environment";
 
 
 export type CommentData = {
@@ -23,8 +24,8 @@ export class ContactPageComponent {
   public readonly destroyRef = inject(DestroyRef);
   private readonly snackBar = inject(MatSnackBar);
   public readonly router = inject(Router);
-  // @ts-ignore
-  protected siteKey = import.meta.env.NG_RECAPTCHA_SITEKEY;
+
+  public siteKey = environment.siteKey;
 
   public commentForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -34,7 +35,7 @@ export class ContactPageComponent {
   });
 
   postComment(): void {
-
+    console.log('your mather', this.commentForm.valid);
   }
 
   handleReset(): void {}

@@ -43,12 +43,24 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "define": {
+                "import.meta.env.NG_RECAPTCHA_SITEKEY": "\"${NG_RECAPTCHA_SITEKEY}\""
+              }
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "define": {
+                "import.meta.env.NG_RECAPTCHA_SITEKEY": "\"${NG_RECAPTCHA_SITEKEY}\""
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
