@@ -5,7 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxCaptchaModule } from 'ngx-captcha';
-
+import {environment} from "../../../environments/environment";
 
 export type CommentData = {
   email: string;
@@ -22,7 +22,7 @@ export class ContactPageComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => {
       //@ts-ignore
-      console.log(process.env);
+      console.log(import.meta);
     }, 1500)
   }
 
