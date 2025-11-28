@@ -22,7 +22,7 @@ export class ContactPageComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => {
       //@ts-ignore
-      console.log(import.meta);
+      console.log(this.siteKey);
     }, 1500)
   }
 
@@ -31,7 +31,7 @@ export class ContactPageComponent implements OnInit {
   private readonly snackBar = inject(MatSnackBar);
   public readonly router = inject(Router);
 
-  public siteKey = import.meta.env.siteKey;
+  public siteKey = environment.siteKey;
 
   public commentForm = new FormGroup({
     email: new FormControl('', [Validators.required]),

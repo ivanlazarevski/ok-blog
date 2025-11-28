@@ -43,10 +43,7 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all",
-              "define": {
-                "import.meta.env.siteKey": "\"${siteKey}\""
-              }
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
