@@ -13,7 +13,7 @@ const envFile = `export const environment = {
 
 const targetPath = path.join(__dirname, './src/environments/environment.development.ts');
 
-fs.writeFile(targetPath, envFile, (err) => {
+fs.writeFileSync(targetPath, envFile, (err) => {
   if (err) {
     console.error(err);
     throw err;
