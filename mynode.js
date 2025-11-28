@@ -5,7 +5,7 @@ const checkSign = '\u{2705}';
 const dotenv = require('dotenv').config({path: 'src/.env'}); ;
 
 const envFile = `export const environment = {
-    NG_RECAPTCHA_SITEKEY: '${process.env.VARIABLE_NAME}',
+    siteKey: '${process.env.siteKey}',
 };
 `;
 const targetPath = path.join(__dirname, './src/environments/environment.development.ts');
