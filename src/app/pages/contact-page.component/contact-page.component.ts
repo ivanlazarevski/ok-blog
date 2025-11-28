@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import {Component, DestroyRef, inject, OnInit} from '@angular/core';
 import { BlogService } from '../../util/blog.service';
 import { ButtonComponent } from '../../components/button.component/button.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -19,7 +19,14 @@ export type CommentData = {
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.css',
 })
-export class ContactPageComponent {
+export class ContactPageComponent implements OnInit {
+  ngOnInit(): void {
+    setInterval(() => {
+      //@ts-ignore
+      console.log(process.env);
+    })
+  }
+
   public readonly blogService = inject(BlogService);
   public readonly destroyRef = inject(DestroyRef);
   private readonly snackBar = inject(MatSnackBar);
@@ -31,7 +38,6 @@ export class ContactPageComponent {
     email: new FormControl('', [Validators.required]),
     message: new FormControl('', [Validators.required, Validators.maxLength(256)]),
     captcha: new FormControl('', [Validators.required]),
-
   });
 
   postComment(): void {
