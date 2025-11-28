@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-dark: #1e1e1e;
+  --color-primary-yellow: #ffcc00;
+  --color-accent: #dfe6e9;
+  --font-main: 'JetBrains Mono', monospace;
+}
+
+body {
+  @apply bg-primary-dark font-main items-center justify-center;
+}
+

@@ -1,0 +1,32 @@
+<h1 class="text-3xl my-4 font-semibold text-primary-yellow"># Contact Me</h1>
+<form [formGroup]="commentForm" class="flex flex-col items-center justify-center">
+  <label class="my-3 w-full text-primary-yellow font-semibold">
+    Email:
+    <input
+      class="w-full bg-primary-yellow/10 outline-none p-2"
+      type="email"
+      autocomplete="off"
+      formControlName="email"
+    />
+  </label>
+  <label class="my-3 w-full text-primary-yellow font-semibold">
+    Comment:
+    <textarea
+      class="w-full bg-primary-yellow/10 outline-none p-2 h-52"
+      formControlName="message"
+    ></textarea>
+    <small>0/256</small>
+  </label>
+  <ngx-recaptcha2
+    #captchaElem
+    [siteKey]="siteKey"
+    (reset)="handleReset()"
+    (expire)="handleExpire()"
+    (load)="handleLoad()"
+    (success)="handleSuccess($event)"
+    [useGlobalDomain]="false"
+    formControlName="captcha"
+  >
+  </ngx-recaptcha2>
+  <app-button [btnText]="'Send'" (click)="postComment()" />
+</form>
