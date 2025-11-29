@@ -2,7 +2,7 @@ import { Component, computed, DestroyRef, inject, OnInit, signal } from '@angula
 import { ActivatedRoute, Params } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { switchMap, take } from 'rxjs';
-import { SanityService } from '../../../util/sanity.service';
+import { SanityRepository } from '../../../util/sanity.repository';
 import { PortableTextDisplayComponent } from '../../../components/portable-text-display/portable-text-display.component';
 import { BlogPost } from '../../../util/blog.types';
 
@@ -14,7 +14,7 @@ import { BlogPost } from '../../../util/blog.types';
 })
 export class BlogPagePostComponent implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
-  private readonly sanity = inject(SanityService);
+  private readonly sanity = inject(SanityRepository);
   private readonly destroyRef = inject(DestroyRef);
 
   // @ts-ignore
