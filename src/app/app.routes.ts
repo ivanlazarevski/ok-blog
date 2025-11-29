@@ -19,14 +19,17 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'archive/:id',
+    loadComponent: () =>
+      import('./pages/blog/blog-page-post.component/blog-page-post.component').then(
+        (m) => m.BlogPagePostComponent,
+      ),
+  },
+  {
     path: 'contact',
     loadComponent: () =>
       import('./pages/contact-page.component/contact-page.component').then(
         (m) => m.ContactPageComponent,
       ),
   },
-  {
-    path: '**',
-    redirectTo: 'index',
-  }
 ];

@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
-import { BlogCard } from '../../../util/blog-card.type';
 import { ButtonComponent } from '../../../components/button.component/button.component';
 import { RouterLink } from '@angular/router';
+import { BlogPost } from '../../../util/blog.types';
 
 @Component({
   selector: 'blog-post-card',
@@ -10,5 +10,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './blog-post-card.component.css',
 })
 export class BlogPostCardComponent {
-  post = input.required<BlogCard>();
+  post = input.required<BlogPost>();
 }

@@ -3,11 +3,11 @@
     # {{ post().title }}
   </h3>
   <div class="mb-3 mt-4 flex gap-2 text-accent/80">
-    <time>{{ post().date }}</time>
+    <time>{{ post()._createdAt }}</time>
     <p>*</p>
     <p>{{ post().minRead }} min read</p>
   </div>
-  <p class="my-4 text-accent">{{ post().text }}</p>
+  <p class="my-4 text-accent">{{ post().excerpt }}</p>
   <div class="flex flex-wrap gap-3 text-sm my-4">
     @for (tag of post().tags; track tag) {
       <div
@@ -17,5 +17,5 @@
       </div>
     }
   </div>
-  <app-button [btnText]="'Read More'" routerLink="/post/{{ post().id }}" />
+  <app-button [btnText]="'Read More'" routerLink="/post/{{ post().slug }}" />
 </article>

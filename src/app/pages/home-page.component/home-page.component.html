@@ -10,11 +10,11 @@
   <h2 class="text-primary-yellow text-2xl font-semibold my-2">Tags</h2>
   <div class="border-1 border-primary-yellow/30 rounded-xl h-1 w-full"></div>
   <section class="flex flex-wrap gap-x-3 gap-y-4 my-5">
-    @for (tag of tagsList(); track tag.id) {
+    @for (tag of tagsList(); track tag) {
       <div
         class="flex items-start gap-2.5 py-2 pl-4 pr-3 bg-primary-yellow/7 rounded-3xl border-transparent hover:border-primary-yellow/20 border-1 text-white cursor-pointer"
       >
-        <p>{{ tag.title }}</p>
+        <p>{{ tag.tag }}</p>
         <p>{{ tag.count }}</p>
       </div>
     }
@@ -23,7 +23,7 @@
 <section class="py-2">
   <h2 class="text-primary-yellow text-2xl font-semibold my-2">Latest Posts</h2>
   <div class="border-1 border-primary-yellow/30 rounded-xl h-1 w-full"></div>
-  @for (post of postsList(); track post.id) {
+  @for (post of postsList(); track post._id) {
     <blog-post-card [post]="post" />
   }
 </section>
