@@ -32,4 +32,8 @@ export const routes: Routes = [
         (m) => m.ContactPageComponent,
       ),
   },
+  {
+    path: '**',
+    redirectTo: 'index'
+  }
 ];
