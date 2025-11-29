@@ -1,0 +1,6 @@
+<h1 class="text-3xl my-4 font-semibold text-primary-yellow"># Post Archive</h1>
+@if (posts()) {
+  @for (post of posts(); track post._id) {
+    <blog-post-card [post]="post" />
+  }
+}

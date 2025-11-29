@@ -29,7 +29,6 @@ export class SanityService {
   }
 
   public getBySlug<T>(slug: string): Observable<BlogPost> {
-    console.log(slug);
     const query = `*[slug.current == "${slug}"][0]`;
     return from(this.client.fetch(query));
   }

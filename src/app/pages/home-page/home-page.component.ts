@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
-import { ButtonComponent } from '../../components/button.component/button.component';
-import { BlogPostCardComponent } from '../blog/blog-post-card.component/blog-post-card.component';
+import { ButtonComponent } from '../../components/button/button.component';
+import { BlogPostCardComponent } from '../blog/blog-post-card/blog-post-card.component';
 import { RouterLink } from '@angular/router';
 import { SanityService } from '../../util/sanity.service';
 import { BlogPost, TagCount } from '../../util/blog.types';
@@ -25,7 +25,6 @@ export class HomePageComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (data) => {
-          console.log(data);
           this.postsList.set(data);
         },
       });

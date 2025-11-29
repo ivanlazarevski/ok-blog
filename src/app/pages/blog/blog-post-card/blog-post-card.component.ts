@@ -1,5 +1,5 @@
-import { Component, input } from '@angular/core';
-import { ButtonComponent } from '../../../components/button.component/button.component';
+import { Component, computed, input } from '@angular/core';
+import { ButtonComponent } from '../../../components/button/button.component';
 import { RouterLink } from '@angular/router';
 import { BlogPost } from '../../../util/blog.types';
 

@@ -32,6 +32,7 @@
     "@angular/material": "^21.0.1",
     "@angular/platform-browser": "^21.0.0",
     "@angular/router": "^21.0.0",
+    "@portabletext/to-html": "^4.0.1",
     "@sanity/client": "^7.13.1",
     "@sanity/image-url": "^2.0.1",
     "dotenv": "^17.2.3",

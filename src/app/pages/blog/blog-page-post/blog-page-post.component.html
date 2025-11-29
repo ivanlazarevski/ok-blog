@@ -1,0 +1,5 @@
+<h1 class="text-2xl text-primary-yellow"># {{blogPost()?.title}}</h1>
+@if(blogPost()) {
+  <portable-text-display [body]="blogPost()?.body" />
+}
+

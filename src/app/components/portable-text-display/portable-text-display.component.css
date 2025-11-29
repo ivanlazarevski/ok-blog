@@ -1,0 +1,10 @@
+:host ::ng-deep p {
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+:host ::ng-deep code {
+  background-color: #cecece;
+  color: #1e1e1e;
+  padding: 0 2px;
+}
