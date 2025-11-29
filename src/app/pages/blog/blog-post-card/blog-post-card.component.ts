@@ -11,4 +11,5 @@ import { BlogPost } from '../../../util/blog.types';
 })
 export class BlogPostCardComponent {
   post = input.required<BlogPost>();
+  postCreatedAt = computed(() => new Date(this.post()._createdAt));
 }
