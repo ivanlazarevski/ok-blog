@@ -23,11 +23,6 @@ export class SanityService {
     return from(this.client.fetch(query));
   }
 
-  public getById<T>(id: string): Observable<BlogPost> {
-    const query = `*[_id == "${id}"][0]`;
-    return from(this.client.fetch(query));
-  }
-
   public getBySlug<T>(slug: string): Observable<BlogPost> {
     const query = `*[slug.current == "${slug}"][0]`;
     return from(this.client.fetch(query));
@@ -38,12 +33,8 @@ export class SanityService {
     return from(this.client.fetch(query));
   }
 
-  public getNextPage(type: string) {
-    if(!this.lastId()) {
-      return [];
-    }
-
-    const query = `*[_type == "${type}" ** _id > $${this.lastId()}] | order(_id [0...5]`;
+  public getByTag(tag: string): Observable<BlogPost[]> {
+    const query = `*[_type == "post" && "${tag}" in tags]`;
     return from(this.client.fetch(query));
   }
 

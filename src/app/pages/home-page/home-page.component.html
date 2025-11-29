@@ -13,6 +13,7 @@
     @for (tag of tagsList(); track tag) {
       <div
         class="flex items-start gap-2.5 py-2 pl-4 pr-3 bg-primary-yellow/7 rounded-3xl border-transparent hover:border-primary-yellow/20 border-1 text-white cursor-pointer"
+        (click)="navigateToTag(tag.tag)"
       >
         <p>{{ tag.tag }}</p>
         <p>{{ tag.count }}</p>

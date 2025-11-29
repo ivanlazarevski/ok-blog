@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { BlogPostCardComponent } from '../blog/blog-post-card/blog-post-card.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { SanityService } from '../../util/sanity.service';
 import { BlogPost, TagCount } from '../../util/blog.types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -14,6 +14,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class HomePageComponent implements OnInit {
   public readonly sanity = inject(SanityService);
+  public readonly router = inject(Router);
   public readonly destroyRef = inject(DestroyRef);
 
   public tagsList = signal<TagCount[]>([]);
@@ -37,5 +38,11 @@ export class HomePageComponent implements OnInit {
           this.tagsList.set(data);
         }
       })
+  }
+
+  navigateToTag(tag: string) {
+    this.router.navigate(['/archive'], {
+      queryParams: { tag }
+    });
   }
 }
