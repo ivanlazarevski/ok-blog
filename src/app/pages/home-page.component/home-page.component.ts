@@ -1,9 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Tag } from '../../util/tag.type';
 import { BlogCard } from '../../util/blog-card.type';
 import { ButtonComponent } from '../../components/button.component/button.component';
 import { BlogPostCardComponent } from '../blog/blog-post-card.component/blog-post-card.component';
 import { RouterLink } from '@angular/router';
+import { SanityService } from '../../util/sanity.service';
 
 @Component({
   selector: 'home-page',
@@ -11,7 +12,14 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
+  ngOnInit(): void {
+    this.sanity.getAll('post').subscribe((data) => {
+      console.log(data);
+    }, error => console.log(error))
+  }
+
+  public readonly sanity = inject(SanityService);
   public tempTags: Tag[] = [
     {
       id: 0,
