@@ -1,5 +1,5 @@
 import { Component, DestroyRef, inject } from '@angular/core';
-import { BlogService } from '../../util/blog.service';
+import { BlogService, CommentData } from '../../util/blog.service';
 import { ButtonComponent } from '../../components/button/button.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -29,10 +29,14 @@ export class ContactPageComponent {
   });
 
   postComment(): void {
-    const email = this.commentForm.value.email;
-    const message = this.commentForm.value.message;
+    const formData: CommentData = {
+      email: this.commentForm.value.email,
+      message: this.commentForm.value.message,
+      'g-recaptcha-response': this.commentForm.value.captcha
+    };
+
     this.blogService
-      .postComment(email, message)
+      .postComment(formData)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         this.snackBar
