@@ -3,27 +3,3 @@
   <router-outlet />
   <app-footer />
 </div>
-@if(scrollPosition() > 0) {
-  <button
-    (click)="goToTop()"
-    class="fixed bottom-8 right-4 z-10 outline-none cursor-pointer p-4 bg-primary-yellow/15 transition-all"
-  >
-    <svg
-      class="w-8 h-8 text-primary-yellow"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="m16 17-4-4-4 4m8-6-4-4-4 4"
-      />
-    </svg>
-  </button>
-}
