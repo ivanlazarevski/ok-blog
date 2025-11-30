@@ -13,3 +13,6 @@ body {
   @apply bg-primary-dark font-main items-center justify-center;
 }
 
+*, *::before, *::after {
+  scroll-behavior: smooth;
+}
