@@ -1,3 +1,0 @@
-export const environment = {
-    siteKey: '6LexAhssAAAAAHtjoB2fmTk5cI-FYP1hKLwrBOii',
-};
