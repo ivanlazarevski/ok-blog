@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { createClient, SanityClient } from '@sanity/client';
 import { Observable, from, map } from 'rxjs';
 import { BlogPost, TagCount } from './blog.types';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class SanityRepository {
 
   constructor() {
     this.client = createClient({
-      projectId: '205vlnet',
+      projectId: environment.sanityProjectId,
       dataset: 'production',
       useCdn: true,
     });

@@ -8,11 +8,6 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { environment } from '../../../environments/environment';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-export type CommentData = {
-  email: string;
-  message: string;
-};
-
 @Component({
   selector: 'contact-page',
   imports: [ButtonComponent, ReactiveFormsModule, NgxCaptchaModule],
