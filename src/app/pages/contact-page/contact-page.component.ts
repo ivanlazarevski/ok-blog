@@ -40,16 +40,11 @@ export class ContactPageComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         this.snackBar
-          .open('❤️ Your message has been sent!', 'OK', { duration: 2000 })
+          .open('❤️ Your message has been sent!', 'Okay!', { duration: 2000 })
           .afterOpened()
           .subscribe(() => {
             this.router.navigate(['/']);
           });
       });
   }
-
-  handleReset(): void {}
-  handleExpire(): void {}
-  handleLoad(): void {}
-  handleSuccess(e: any): void {}
 }
