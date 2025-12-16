@@ -30,7 +30,7 @@ export class SanityRepository {
   }
 
   public getFirstFive(type: string): Observable<BlogPost[]> {
-    const query = `*[_type == "${type}"] | order(_id) [0...5]`;
+    const query = `*[_type == "${type}"] | order(_createdAt desc) [0...5]`;
     return from(this.client.fetch(query));
   }
 
@@ -44,7 +44,7 @@ export class SanityRepository {
       return from([]);
     }
 
-    const query = `*[_type == "post" && _id > $lastId] | order(_id) [0...5]`;
+    const query = `*[_type == "post" && _id > $lastId] | order(_createdAt desc) [0...5]`;
     return from(this.client.fetch<BlogPost[]>(query, { lastId: this.lastId() }));
   }
 
