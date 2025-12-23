@@ -20,7 +20,7 @@ export class SanityRepository {
   }
 
   getAll<T>(type: string): Observable<BlogPost[]> {
-    const query = `*[_type == "${type}"]`;
+    const query = `*[_type == "${type}"] | order(_createdAt desc)`;
     return from(this.client.fetch(query));
   }
 
@@ -43,7 +43,7 @@ export class SanityRepository {
     if (this.lastId() === null) {
       return from([]);
     }
-
+    console.log(this.lastId());
     const query = `*[_type == "post" && _id > $lastId] | order(_createdAt desc) [0...5]`;
     return from(this.client.fetch<BlogPost[]>(query, { lastId: this.lastId() }));
   }

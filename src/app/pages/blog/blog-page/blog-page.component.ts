@@ -47,7 +47,7 @@ export class BlogPageComponent implements OnInit {
 
   private getAllPosts(): void {
     this.sanity
-      .getFirstFive('post')
+      .getAll('post')
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (data) => {
